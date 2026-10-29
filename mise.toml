@@ -1,0 +1,28 @@
+[tools]
+node = "24"
+pnpm = "12"
+
+[tasks.install]
+description = "Install dependencies (Playwright Chromium is downloaded by its postinstall)"
+run = "pnpm install"
+
+[tasks.dev]
+description = "Start a lecture in dev mode: mise run dev 01"
+usage = 'arg "<lecture>" help="Lecture number, e.g. 01"'
+depends = ["install"]
+run = "pnpm dev:${usage_lecture}"
+
+[tasks.build]
+description = "Build static SPA for a lecture: mise run build 01"
+usage = 'arg "<lecture>" help="Lecture number, e.g. 01"'
+depends = ["install"]
+run = "pnpm build:${usage_lecture}"
+
+[tasks.export]
+description = "Export a lecture: mise run export 01 pdf|pptx|pptx-editable"
+usage = '''
+arg "<lecture>" help="Lecture number, e.g. 01"
+arg "[format]" default="pdf" help="pdf, pptx or pptx-editable"
+'''
+depends = ["install"]
+run = "pnpm export:${usage_lecture}:${usage_format}"

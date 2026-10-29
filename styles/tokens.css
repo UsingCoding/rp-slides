@@ -1,0 +1,26 @@
+/*
+ * Design tokens shared by every lecture.
+ * Change the palette here; layouts, typography and Mermaid (setup/mermaid.ts) follow it.
+ */
+:root {
+  --lecture-bg: #F8FAFC;
+  --lecture-text: #0F172A;
+  --lecture-primary: #2563EB;
+  --lecture-secondary: #64748B;
+  --lecture-success: #0F766E;
+  --lecture-warning: #EA580C;
+  --lecture-code-bg: #EEF2F7;
+  --lecture-border: #CBD5E1;
+  --lecture-primary-soft: #DBEAFE;
+
+  --lecture-font-sans: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --lecture-font-mono: 'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  /* Slidev / seriph variables mapped to the palette */
+  --slidev-theme-primary: var(--lecture-primary);
+  --slidev-code-background: var(--lecture-code-bg);
+  --slidev-code-font-size: 1.05rem;
+  --slidev-code-line-height: 1.6;
+  --slidev-code-radius: 8px;
+  --slidev-code-padding: 1rem 1.25rem;
+}

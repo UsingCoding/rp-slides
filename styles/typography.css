@@ -1,0 +1,173 @@
+/*
+ * Shared typography. Every selector is scoped to .slidev-layout
+ * so the Slidev UI (presenter, overview, navigation) is not affected.
+ */
+.slidev-layout {
+  background: var(--lecture-bg);
+  color: var(--lecture-text);
+  font-family: var(--lecture-font-sans);
+  font-size: 1.35rem;
+  line-height: 1.6;
+  padding: 2.5rem 3.5rem;
+
+  h1, h2, h3, h4 {
+    font-family: var(--lecture-font-sans);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  h1 {
+    color: var(--lecture-text);
+    font-size: 2.6rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--lecture-primary);
+    display: inline-block;
+  }
+
+  h1 + p {
+    opacity: 1;
+    color: var(--lecture-secondary);
+    margin-top: -0.75rem;
+  }
+
+  h2 { font-size: 1.9rem; color: var(--lecture-primary); margin-bottom: 0.75rem; }
+  h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+  p { margin: 0.75rem 0; }
+
+  strong { color: var(--lecture-text); font-weight: 700; }
+  em { color: var(--lecture-secondary); }
+
+  a {
+    color: var(--lecture-primary);
+    border-bottom: 1px solid currentColor;
+  }
+
+  ul, ol {
+    margin: 0.75rem 0 0.75rem 0.25rem;
+  }
+
+  ul { list-style: none; padding-left: 1.5rem; }
+  ul > li { position: relative; }
+  ul > li::before {
+    content: '';
+    position: absolute;
+    left: -1.25rem;
+    top: 0.68em;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 2px;
+    background: var(--lecture-primary);
+  }
+
+  ol { list-style: decimal; padding-left: 1.75rem; }
+  ol > li::marker { color: var(--lecture-primary); font-weight: 700; }
+
+  li { margin: 0.4rem 0; line-height: 1.5; }
+  li > ul, li > ol { margin: 0.25rem 0; }
+
+  /* Inline code */
+  :not(pre) > code {
+    font-family: var(--lecture-font-mono);
+    font-size: 0.9em;
+    background: var(--lecture-code-bg);
+    color: var(--lecture-text);
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+  }
+
+  /* Code blocks */
+  pre, .slidev-code {
+    font-family: var(--lecture-font-mono);
+    font-size: var(--slidev-code-font-size);
+    line-height: var(--slidev-code-line-height);
+    background: var(--lecture-code-bg) !important;
+    border-left: 4px solid var(--lecture-primary);
+    border-radius: var(--slidev-code-radius);
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 1.15rem;
+  }
+  th {
+    text-align: left;
+    font-weight: 700;
+    color: var(--lecture-primary);
+    border-bottom: 2px solid var(--lecture-primary);
+    padding: 0.5rem 0.75rem;
+  }
+  td {
+    border-bottom: 1px solid var(--lecture-border);
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* Quotes and callouts */
+  blockquote {
+    border-left: 4px solid var(--lecture-primary);
+    background: var(--lecture-primary-soft);
+    color: var(--lecture-text);
+    padding: 0.75rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+    font-size: inherit;
+  }
+  blockquote p { margin: 0; font-size: inherit; }
+
+  .callout {
+    border-left: 4px solid var(--lecture-primary);
+    background: var(--lecture-primary-soft);
+    padding: 0.75rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+  }
+  .callout.success {
+    border-color: var(--lecture-success);
+    background: color-mix(in srgb, var(--lecture-success) 12%, white);
+  }
+  .callout.warning {
+    border-color: var(--lecture-warning);
+    background: color-mix(in srgb, var(--lecture-warning) 12%, white);
+  }
+
+  .text-success { color: var(--lecture-success); }
+  .text-warning { color: var(--lecture-warning); }
+  .text-muted { color: var(--lecture-secondary); }
+}
+
+/* Cover: seriph layout, recolored to the shared palette */
+.slidev-layout.cover {
+  background: var(--lecture-bg) !important;
+  color: var(--lecture-text);
+
+  h1 {
+    font-size: 3.6rem;
+    line-height: 1.15;
+    color: var(--lecture-text);
+    border-bottom: none;
+  }
+  h1 + p {
+    color: var(--lecture-secondary);
+    font-size: 1.6rem;
+    margin-top: 0.5rem;
+  }
+  p { color: var(--lecture-secondary); }
+}
+
+/* Center: one central idea, larger text */
+.slidev-layout.center {
+  text-align: center;
+  font-size: 1.8rem;
+
+  h1 { border-bottom: none; font-size: 3rem; }
+}
+
+/* Two columns: comfortable gap */
+.slidev-layout.two-columns {
+  column-gap: 2.5rem;
+}

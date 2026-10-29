@@ -1,0 +1,27 @@
+{
+  "name": "distributed-systems-lectures",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev:01": "slidev 01-saga-intro.md --open",
+    "dev:02": "slidev 02-saga-advanced.md --open",
+    "build:01": "slidev build 01-saga-intro.md --out dist/01-saga-intro --base /01-saga-intro/",
+    "build:02": "slidev build 02-saga-advanced.md --out dist/02-saga-advanced --base /02-saga-advanced/",
+    "export:01:pdf": "slidev export 01-saga-intro.md --format pdf --output dist/01-saga-intro.pdf",
+    "export:02:pdf": "slidev export 02-saga-advanced.md --format pdf --output dist/02-saga-advanced.pdf",
+    "export:01:pptx": "slidev export 01-saga-intro.md --format pptx --with-clicks false --output dist/01-saga-intro.pptx",
+    "export:02:pptx": "slidev export 02-saga-advanced.md --format pptx --with-clicks false --output dist/02-saga-advanced.pptx",
+    "export:01:pptx-editable": "slidev export 01-saga-intro.md --format pptx-editable --with-clicks false --output dist/01-saga-intro-editable.pptx"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^53.0.0",
+    "@slidev/theme-seriph": "^0.25.0",
+    "@slidev/types": "^53.0.0",
+    "playwright-chromium": "^1.64.1",
+    "typescript": "^7.0.2",
+    "vue": "^3.5.44"
+  }
+}

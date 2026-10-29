@@ -1,0 +1,33 @@
+/*
+ * Mermaid diagrams are rendered by Slidev inside a shadow root (.mermaid host),
+ * so only the host is styled here. SVG fitting lives in setup/mermaid.ts (themeCSS).
+ */
+.slidev-layout .mermaid {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+/* Custom "diagram" layout: heading on top, diagram fills the rest of the slide */
+.slidev-layout.diagram {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-bottom: 1.5rem;
+
+  h1 { align-self: flex-start; margin-bottom: 1rem; }
+
+  .mermaid {
+    flex: 1 1 0;
+    min-height: 0;
+    margin: 0;
+  }
+
+  .diagram-caption {
+    color: var(--lecture-secondary);
+    font-size: 1.1rem;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+}
