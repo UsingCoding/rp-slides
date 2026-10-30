@@ -38,35 +38,6 @@ type AuthorizePayment struct {
 ```
 
 ---
-layout: diagram
----
-
-# Вместо dual write — Transactional Outbox
-
-```mermaid
-flowchart LR
-    H[Handler] --> T[Local transaction]
-    T --> B[(Business data)]
-    T --> O[(Outbox table)]
-    O --> R[Relay / CDC]
-    R --> Q[Broker]
-    Q --> C[Consumer]
-```
-
-::caption::
-Изменение данных и запись в outbox — один commit. Публикация — позже.
-
----
-
-# Restart — продолжение, не новая Saga
-
-- Храним состояние, версию, результат шага и resource IDs.
-- State transition + следующая command в outbox — атомарно.
-- Deadlines и next_attempt_at переживают остановку процесса.
-- CAS по версии / lock не дают двум workers сделать разные transitions.
-- Late и duplicate ответы проверяем по операции и текущему состоянию.
-
----
 
 # Compensation тоже может упасть
 
@@ -75,3 +46,16 @@ flowchart LR
 - Permanent error / исчерпан retry budget → NeedsAttention и ответственный.
 - Метрики: возраст Saga, неизвестные исходы, stuck compensations, outbox lag.
 - Logs и traces связываем через Saga ID, шаг, попытку и результат.
+
+---
+
+# Инструменты решения для проблем Saga
+
+| Проблема | Инструмент |
+| --- | --- |
+| Повторы и redelivery | **Idempotency key**, inbox с deduplication по Message ID |
+| Процесс размазан по сервисам | **Correlation ID** (Saga ID) в messages, logs и traces |
+| Неизвестный исход | Reconciliation: запрос статуса у участника |
+| Dual write | Transactional Outbox |
+| Падение процесса | Persistent state, deadlines и timers |
+| Сбой compensation | Retry с backoff, DLQ, NeedsAttention |
