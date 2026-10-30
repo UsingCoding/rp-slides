@@ -11,7 +11,7 @@ number: 1
 layout: diagram
 ---
 
-# Хореография через события
+# Choreography через events
 
 ```mermaid
 flowchart LR
@@ -20,7 +20,3 @@ flowchart LR
     I -- StockFailed --> P
     P -- PaymentRefunded --> O
 ```
-
-<!--
-Заготовка: полноценное содержание лекции будет добавлено позже.
--->
