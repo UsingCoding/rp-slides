@@ -65,7 +65,7 @@ flowchart LR
 
 ---
 
-# Регистрируй compensation до рисковой Activity
+# Регистрация compensation до рисковой Activity
 
 ```go
 compensations = append(compensations, "RefundPayment")
